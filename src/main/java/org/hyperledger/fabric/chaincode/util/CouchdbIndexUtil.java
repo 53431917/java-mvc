@@ -26,7 +26,7 @@ import com.alibaba.fastjson.JSON;
 
 /**
  * create index
- * @author hechang
+ * @author  
  *
  */
 public class CouchdbIndexUtil {

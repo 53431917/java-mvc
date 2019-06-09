@@ -15,7 +15,7 @@ import org.springframework.util.ClassUtils;
 
 /**
  * 测试自定义扫描注入.
- * @author hechang
+ * @author  
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSONObject;
 
 /**
  * 包装请求参数.
- * @author hechang
+ * @author  
  *
  */
 public class RequestImpl implements IRequest {

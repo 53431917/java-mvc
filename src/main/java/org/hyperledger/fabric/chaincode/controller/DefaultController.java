@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 默认控制器，根据Entity注解生成默认接口.
- * @author hechang
+ * @author  
  *
  */
 @FabricController

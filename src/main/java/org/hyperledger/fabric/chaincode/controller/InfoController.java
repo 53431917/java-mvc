@@ -22,7 +22,7 @@ import org.springframework.util.ClassUtils;
 /**
  * 初始化controller,获取合约中的全部controller信息.
  *
- * @author hechang
+ * @author  
  *
  */
 //@DependsOn({ "autowireControllerUtil" })

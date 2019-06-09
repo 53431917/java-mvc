@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * Service类注解.
- * @author hechang
+ * @author  
  *
  */
 @Target(ElementType.TYPE)

@@ -13,7 +13,7 @@ import org.hyperledger.fabric.chaincode.query.model.QueryStatements;
 /**
  * 生成couchdb索引.CouchDB 的 "sort":[{"age": "asc"},{"id": "asc"}
  * 多个sort条件时必须全部为"asc"或"desc"
- * @author hechang
+ * @author  
  *
  */
 public class IndexCompiler {

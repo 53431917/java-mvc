@@ -24,7 +24,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 /**
  * 初始化controller,获取合约中的全部controller信息.
  * 可以根据返回的json 供swagger-ui 使用，做rest风格的提交节点.
- * @author hechang
+ * @author  
  *
  */
 @DependsOn({ "autowireControllerUtil" })

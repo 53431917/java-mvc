@@ -21,7 +21,7 @@ import com.alibaba.fastjson.JSON;
 
 /**
  * 存储服务抽像类.
- * @author hechang
+ * @author  
  *
  */
 public class AbstractBaseRepository  {

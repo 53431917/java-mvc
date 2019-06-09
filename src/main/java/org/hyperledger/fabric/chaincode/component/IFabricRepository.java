@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 实体类存存储，可以注入到其它类.
  * 
- * @author hechang
+ * @author  
  *
  */
 public interface IFabricRepository {

@@ -21,7 +21,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 /**
  * .
  * 
- * @author hechang
+ * @author  
  *
  */
 @Component
