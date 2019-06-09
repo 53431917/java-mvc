@@ -1,0 +1,7 @@
+.classpath
+.project
+.git
+.settings
+/logs
+/target
+/src/main/resources/CouchDB.g4
