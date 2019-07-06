@@ -17,7 +17,6 @@ import org.springframework.util.ClassUtils;
 
 /**
  * 注入默认的DefaultController和QueryController控制器.
- * @author  
  *
  */
 @Component

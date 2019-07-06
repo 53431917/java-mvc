@@ -4,7 +4,6 @@ import org.hyperledger.fabric.chaincode.entity.validate.impl.EntityFieldValidate
 
 /**
  * Field验证器工厂类。单例模式.
- * @author  
  *
  */
 public class EntityFieldValidateFactory {

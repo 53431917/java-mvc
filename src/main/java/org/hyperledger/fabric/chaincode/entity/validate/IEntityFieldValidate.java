@@ -2,7 +2,6 @@ package org.hyperledger.fabric.chaincode.entity.validate;
 
 /**
  * 属性校验.
- * @author  
  *
  */
 public interface IEntityFieldValidate {

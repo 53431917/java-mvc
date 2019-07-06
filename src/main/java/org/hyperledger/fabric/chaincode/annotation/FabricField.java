@@ -10,7 +10,6 @@ import java.lang.annotation.ElementType;
 
 /**
  * 定义实体类内部ID,ID会保存为数据库的键/复合键.
- * @author  
  *
  */
 @Target({ ElementType.FIELD })

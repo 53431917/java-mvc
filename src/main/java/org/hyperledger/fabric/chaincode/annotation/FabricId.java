@@ -9,7 +9,6 @@ import java.lang.annotation.ElementType;
 
 /**
  * 定义实体类内部属性的校验规则.
- * @author  
  *
  */
 @Target({ ElementType.FIELD })

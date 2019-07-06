@@ -17,7 +17,6 @@ import org.springframework.util.StringUtils;
 
 /**
  * 自定义注解注入容器时的名称,名称根据注解的value值定，若空则用名变量.
- * @author  
  */
 public class CustomAnnotationBeanNameGenerator implements BeanNameGenerator {
     /**

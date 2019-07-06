@@ -8,7 +8,6 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * 控制器类注解.
- * @author  
  *
  */
 @Target(ElementType.TYPE)

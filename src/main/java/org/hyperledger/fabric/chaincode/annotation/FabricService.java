@@ -8,7 +8,6 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * Service类注解.
- * @author  
  *
  */
 @Target(ElementType.TYPE)

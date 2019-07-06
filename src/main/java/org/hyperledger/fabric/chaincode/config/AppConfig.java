@@ -8,7 +8,6 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 /**
  * 注解配置类，配置文件路径.
- * @author  
  *
  */
 //@Configuration

@@ -110,13 +110,10 @@ public class TestAnlr4 {
     }
     
     public static void main(String[] arg) throws Exception {
-        TestAnlr4 q = new TestAnlr4();
+         TestAnlr4 q = new TestAnlr4();
          q.testQuer(); //用这个测试，queries文件中每一行必须空格
-    //  q.test();
+         //q.test();
     
-    
-        
-        
     }
     
  

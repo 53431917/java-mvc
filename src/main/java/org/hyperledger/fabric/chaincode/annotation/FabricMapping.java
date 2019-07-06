@@ -9,7 +9,6 @@ import java.lang.annotation.ElementType;
 
 /**
  * 控制器内的方法定义注解。有该注解的方法才可以被调用.
- * @author  
  *
  */
 @Target({ ElementType.METHOD })

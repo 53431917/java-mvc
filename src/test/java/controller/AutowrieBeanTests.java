@@ -15,7 +15,7 @@ import org.springframework.util.ClassUtils;
 
 /**
  * 测试自定义扫描注入.
- * @author  
+ * org.hyperledger.fabric.chaincode
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)

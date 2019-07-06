@@ -255,23 +255,22 @@
             </plugin>
 		</plugins>
 	</build>
-<!--
   <pluginRepositories>
         <pluginRepository>
             <id>alimavenplugin</id>
             <name>aliyun maven</name>
-            <url></url>
+            <url>http://10.121.60.50:8081/repository/chain-maven-group/</url>
              <layout>default</layout> 
              
         </pluginRepository>
     </pluginRepositories>
--->
+
 	<repositories>
 		<repository>
 			<id>alimaven</id>
 			<name>aliyun maven</name>
 			 <layout>default</layout> 
-			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+			<url>http://10.121.60.50:8081/repository/chain-maven-group/</url>
           <releases>
                 <enabled>true</enabled>
             </releases>

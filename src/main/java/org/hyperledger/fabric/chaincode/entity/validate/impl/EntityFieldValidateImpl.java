@@ -17,7 +17,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Entity属性校验.
- * @author  
  *
  */
 public class EntityFieldValidateImpl implements IEntityFieldValidate {

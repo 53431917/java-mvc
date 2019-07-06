@@ -1,45 +1,7 @@
-query querContext 
+query querContext  
 description '查询指定字段' 
 SELECT gid, textContext 
 FROM org.hyperledger.fabric.chaincode.test.Context 
- WHERE  gid > #gid# 
-ORDER BY gid DESC  
-LIMIT #limit# 
-BOOKMARK #bookmark# 
-
-
-
-
-
-query querContext2 
-description '在接口里赋值size bookmark 分页调用' 
-SELECT gid, textContext 
-FROM org.hyperledger.fabric.chaincode.test.Context 
- WHERE  gid > #gid# 
-ORDER BY gid DESC  
-
-
-query querContextAllFields  
-description '查询合部字段,注意每一行后留空格' 
-FROM org.hyperledger.fabric.chaincode.test.Context  
- WHERE  gid > #gid# 
-ORDER BY gid DESC 
-LIMIT #limit#  
-BOOKMARK #bookmark# 
-
-
-query testDynamicQuery 
-FROM org.hyperledger.fabric.chaincode.test.FabricEntityTest 
-WHERE  ( age > #beginAge#  AND age <= #lastAge# ) AND b == #b# AND  cust >= #cust# 
-ORDER BY age DESC , cust DESC 
-LIMIT #limit# 
-BOOKMARK #bookmark# 
-
-
-
-query querContext4 
-description '查询指定字段' 
-SELECT gid, textContext 
-FROM org.hyperledger.fabric.chaincode.test.Context 
- WHERE  (age > #beginAge#  AND age <= #lastAge# AND  age IN #inAge# )  
- AND b == #b# AND  cust >= #cust# 
+ WHERE  age > #beginAge#  AND age <= #lastAge# AND ( age IN #inAge# 
+ AND b == #b# ) AND  cust >= #cust# 
+ ORDER BY name DESC

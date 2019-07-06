@@ -70,7 +70,7 @@ public class ContextController {
   @FabricMapping
   public List<Context> queryContextByIn(@FabricParam(value="map", required=true )
                 Map<String, Object> map) {
-      List<Context> list = contextService.queryByTagName("querContext4",map);
+      List<Context> list = contextService.queryByTagName("querContext",map);
       return list;
   }
   

@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -16,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -25,7 +23,6 @@ import org.hyperledger.fabric.chaincode.query.antlr.CouchDBLexer;
 import org.hyperledger.fabric.chaincode.query.antlr.CouchDBParser;
 import org.hyperledger.fabric.chaincode.query.model.IndexModel;
 import org.hyperledger.fabric.chaincode.query.model.QueryStatements;
-import org.hyperledger.fabric.chaincode.query.model.SelectClause;
 import org.hyperledger.fabric.chaincode.query.model.Value;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,9 +46,9 @@ public class CouchdbQueryParser {
      */
     private Map<String, QueryStatements> queryStatementMap = new ConcurrentHashMap<>();
     
-    private Map<QueryStatements, IndexModel> queryStatementsIndexMap = new ConcurrentHashMap<>();
+   // private Map<QueryStatements, IndexModel> queryStatementsIndexMap = new ConcurrentHashMap<>();
     
-    private Set<IndexModel> indexModelSet = new HashSet<>();
+    //private Set<IndexModel> indexModelSet = new HashSet<>();
     
     
 
@@ -66,9 +63,9 @@ public class CouchdbQueryParser {
             List<String> queries = getAllQueries();
             for (String query : queries) {
             	QueryStatements queryStatements  =   getQueryStatements(query);
-            	IndexModel indexModel = this.getIndex(queryStatements);
-            	indexModelSet.add(indexModel);
-            	queryStatementsIndexMap.put(queryStatements, indexModel);
+            	//IndexModel indexModel = this.getIndex(queryStatements);
+            	//indexModelSet.add(indexModel);
+            	//queryStatementsIndexMap.put(queryStatements, indexModel);
             	queryStatementMap.put(queryStatements.getQueryName(), queryStatements);
             }
         } catch (IOException e) {
@@ -123,16 +120,9 @@ public class CouchdbQueryParser {
     	   }
     	   throw new RuntimeException("Can't find the query statement by name :" + queryName);
        }
-       Map<String,Object> resultMap = new HashMap<>();
-       //如果有索引，则添加索引
-       if (queryStatementsIndexMap.get(queryStatements) != null) {
-           IndexModel indexModel = queryStatementsIndexMap.get(queryStatements);
-           List<String> list = new ArrayList<>(2);
-           list.add("_design/" + indexModel.getDdoc());
-           list.add(indexModel.getName());
-           resultMap.put("use_index", list);
+        Map<String,Object> resultMap = new HashMap<>();
+        
            
-       }
         QueryStatements newQueryStatements = null;
         String newQueryName = this.getQueryName(queryStatements, paramMap);
         if (queryStatementMap.get(newQueryName) != null) {
@@ -148,6 +138,14 @@ public class CouchdbQueryParser {
         if (map.get("fields") != null) {
             resultMap.put("fields", map.remove("fields"));
         }
+        
+      //添加索引
+        IndexCompiler indexCompiler = new IndexCompiler(newQueryStatements);
+        IndexModel indexModel = indexCompiler.vistIndex();
+        List<String> list = new ArrayList<>(2);
+        list.add("_design/" + indexModel.getDdoc());
+        list.add(indexModel.getName());
+        resultMap.put("use_index", list);
         String resultStr = JSON.toJSONString(resultMap,SerializerFeature.DisableCircularReferenceDetect);
        
         
@@ -208,17 +206,20 @@ public class CouchdbQueryParser {
      * @return
      */
 	private String getQueryName(QueryStatements queryStatements,  Map<String, Object> paramMap) {
-    	StringBuilder sb = new StringBuilder();
-    	sb.append(queryStatements.getQueryName());
-		paramMap.forEach((k,v) -> {
+    	List<String> list = new ArrayList<>();
+    	
+		paramMap.forEach(( k,v) -> {
 			if (v != null) {
-				sb.append(k);
+			    list.add(k);
 			} 
 		});
 		if (paramMap.isEmpty()) {
-			sb.append("All");
+			list.add("All");
 		}
-		return sb.toString();
+		list.sort((s1,s2)-> s1.compareTo(s2));
+		list.add(0, queryStatements.getQueryName());
+		String joined = list.stream().collect(Collectors.joining("", "", ""));
+		return joined;
     }
     
     private QueryStatements createNewQueryStatements(
@@ -262,7 +263,6 @@ public class CouchdbQueryParser {
 	    	   throw new RuntimeException("Query statment " + newQueryStatements.getQueryName() + "is existed in cache map.");
 		}
 		queryStatementMap.put(newQueryStatements.getQueryName(), newQueryStatements);
-		queryStatementsIndexMap.put(newQueryStatements, queryStatementsIndexMap.get(queryStatements));
 		return newQueryStatements;
 	}
 
@@ -300,26 +300,12 @@ public class CouchdbQueryParser {
         return queryStatements;
     }
     
-   
-    /**
-     * 获取索引.
-     * @param sql
-     * @return
-     */
-    public IndexModel getIndex(QueryStatements queryStatements) {        
-        IndexCompiler ic = new IndexCompiler(queryStatements);
-        IndexModel im = ic.vistIndex();             
-        return im;
-    }
-    
+
 
     public List<String> getAllQueries() throws IOException {
         Resource[] resources = getQueryResources();
         List<String> allSqlList = new ArrayList<>();
-        
-   
         for (Resource r : resources) {
-            
             BufferedReader br = new BufferedReader(new InputStreamReader(r.getInputStream()));
             StringBuilder sb = null;
             String str = null;
@@ -391,18 +377,8 @@ public class CouchdbQueryParser {
     }
 
 
-
-	public Set<IndexModel> getIndexModelSet() {
-		return indexModelSet;
-	}
-
-
 	public Map<String, QueryStatements> getQueryStatementMap() {
 		return queryStatementMap;
 	}
 
-
-
-
-   
 }

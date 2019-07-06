@@ -1,7 +1,9 @@
 package couchdb;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.hyperledger.fabric.chaincode.query.CouchdbQueryParser;
@@ -27,6 +29,11 @@ public class TestSelector {
         p.put("gid", "1");
         p.put("bookmark", "");
         p.put("limit", 10);
+        
+        List<String> inAgeList = new ArrayList<>();
+        inAgeList.add("in1");
+        inAgeList.add("in2");
+        p.put("inAge",inAgeList);
         EnumMap<EnumSelector, Object> selector = c.getSelector("querContext", p);
         String str = (String) selector.get(EnumSelector.SELECTOR);
         System.out.println(str);
@@ -48,17 +55,17 @@ public class TestSelector {
 		//p.put("cust", "cust01");
 		//p.put("bookmark", "adf");
 		p.put("limit", 10);
-		EnumMap<EnumSelector, Object> selector = c.getSelector("testDynamicQuery", p);
+		EnumMap<EnumSelector, Object> selector = c.getSelector("querContext", p);
 		String str = (String) selector.get(EnumSelector.SELECTOR);
 		System.out.println(str);
 		System.out.println(selector.get(EnumSelector.BOOKMARK));
 		System.out.println(selector.get(EnumSelector.SIZE));
 		
 		
-		selector = c.getSelector("testDynamicQuery", p);
+		selector = c.getSelector("querContext", p);
 	}
 	
-	@Test 
+	//@Test 
 	public void testDynamicSql() {
 		   CouchdbQueryParser c = CouchdbQueryParser.getInstance();
 		   
@@ -77,7 +84,7 @@ public class TestSelector {
 		   
 		    StringBuilder sb = new StringBuilder();
 	        sb.append("query testDynamicQuery ");
-	        sb.append("FROM org.hyperledger.fabric.chaincode.test.FabricEntityTest ");
+	        sb.append("SELECT org.hyperledger.fabric.chaincode.test.FabricEntityTest ");
 	        sb.append("WHERE id >= #id# AND f == #f# AND b == #b# ");
 	        Map<String, Object> p = new HashMap<String, Object>();
 	        p.put("id", 40);

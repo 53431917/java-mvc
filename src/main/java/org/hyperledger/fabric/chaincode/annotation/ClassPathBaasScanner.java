@@ -23,7 +23,6 @@ import org.springframework.core.type.filter.AssignableTypeFilter;
 
 /**
  * 自定义扫描类。扫描自定义注解.
- * @author  
  *
  */
 public class ClassPathBaasScanner extends ClassPathBeanDefinitionScanner {

@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.hyperledger.fabric.chaincode.query.CouchdbQueryParser;
+import org.hyperledger.fabric.chaincode.query.IndexCompiler;
 import org.hyperledger.fabric.chaincode.query.model.IndexModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,6 @@ import com.alibaba.fastjson.JSON;
 
 /**
  * create index
- * @author  
  *
  */
 public class CouchdbIndexUtil {
@@ -40,7 +40,13 @@ public class CouchdbIndexUtil {
 	    public void creatProjecIndex(String[] args) {
 	        try {
 	            CouchdbQueryParser c = CouchdbQueryParser.getInstance();
-	            Set<IndexModel> set = c.getIndexModelSet();
+	            Set<IndexModel> set = new HashSet<>();
+	            c.getQueryStatementMap().forEach((k, v) -> {
+	                IndexCompiler indexCompiler = new IndexCompiler(v);
+	                List<IndexModel> list = indexCompiler.getAllIndexModel();
+	                set.addAll(list);
+	            });
+	            
 	            /*
 	             * for(IndexModel indexModel : list) {
 	             * set.add(JSON.toJSONString(indexModel)); }

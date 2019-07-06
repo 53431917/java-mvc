@@ -19,7 +19,6 @@ import org.springframework.util.StringUtils;
 
 /**
  * 自定义注解扫描类.扫描自定义注解.
- * @author  
  *
  */
 public class FabricScannerRegistrar

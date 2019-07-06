@@ -30,7 +30,6 @@ import org.springframework.util.ClassUtils;
 /**
  * 注入controller后把controller的方法映射出来
  * 
- * @author  
  *
  */
 public class HandlerMethodMapping implements HandlerMapping, InitializingBean{

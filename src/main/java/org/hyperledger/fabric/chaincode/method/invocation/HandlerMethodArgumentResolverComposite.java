@@ -9,15 +9,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.hyperledger.fabric.chaincode.request.IRequest;
 import org.springframework.core.MethodParameter;
 
-/**
- * Resolves method parameters by delegating to a list of registered
- * {@link HandlerMethodArgumentResolver}. Previously resolved method parameters are cached
- * for faster lookups.
- *
- * @author Rossen Stoyanchev
- * @author Juergen Hoeller
- * @since 4.0
- */
 public class HandlerMethodArgumentResolverComposite implements HandlerMethodArgumentResolver {
 
   private final List<HandlerMethodArgumentResolver> argumentResolvers = new LinkedList<>();
