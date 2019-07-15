@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.query.impl;
 
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.entity;
 
+
 import java.io.Serializable;
 import java.util.List;
 

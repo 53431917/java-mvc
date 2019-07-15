@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.request;
 
+
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;

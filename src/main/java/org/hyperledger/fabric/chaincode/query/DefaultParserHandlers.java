@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.query;
 
+
 import org.hyperledger.fabric.chaincode.query.impl.CouchdbQueryParser;
 public enum DefaultParserHandlers implements ParserFactory{
 

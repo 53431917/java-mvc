@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.query;
 
+
 import java.io.IOException;
 import java.io.Reader;
 import java.util.EnumMap;

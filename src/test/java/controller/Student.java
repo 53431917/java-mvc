@@ -2,6 +2,7 @@ package controller;
 import org.hyperledger.fabric.chaincode.annotation.FabricEntity;
 import org.hyperledger.fabric.chaincode.annotation.FabricId;
 
+
 @FabricEntity
 public class Student {
 

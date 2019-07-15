@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.test;
 
+
 import org.hyperledger.fabric.chaincode.boot.Application;
 import org.hyperledger.fabric.chaincode.util.CouchdbIndexUtil;
 

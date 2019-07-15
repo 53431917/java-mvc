@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.boot;
 
+
 import org.hyperledger.fabric.chaincode.annotation.FabricScan;
 import org.hyperledger.fabric.chaincode.annotation.FabricConfiguration;
 import org.hyperledger.fabric.chaincode.core.Dispatcher;

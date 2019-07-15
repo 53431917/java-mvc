@@ -6,7 +6,6 @@ import org.hyperledger.fabric.chaincode.service.IRepositorService;
 import org.hyperledger.fabric.chaincode.test.Context;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 @FabricController
 public class AutowireController {
   

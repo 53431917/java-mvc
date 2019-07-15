@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.query;
 
+
 import java.util.List;
 
 import org.hyperledger.fabric.chaincode.query.model.IndexModel;

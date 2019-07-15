@@ -12,7 +12,6 @@ import org.springframework.util.ClassUtils;
 
 
 
-
 /**
  * 测试自定义扫描注入.
  * org.hyperledger.fabric.chaincode

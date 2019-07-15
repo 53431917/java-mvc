@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.query.model;
 
+
 public class Value {
     
     private String preCharacter;

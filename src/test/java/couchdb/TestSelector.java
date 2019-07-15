@@ -1,5 +1,4 @@
 package couchdb;
-
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -13,7 +12,6 @@ import org.junit.Test;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(classes = AppMain.class)
-
 
 public class TestSelector {
     

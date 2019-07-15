@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.entity.validate;
 
+
 import org.hyperledger.fabric.chaincode.entity.validate.impl.EntityFieldValidateImpl;
 
 /**

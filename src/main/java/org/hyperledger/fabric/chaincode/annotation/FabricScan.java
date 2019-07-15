@@ -1,5 +1,6 @@
 package org.hyperledger.fabric.chaincode.annotation;
 
+
 import java.lang.annotation.*;
 
 import org.springframework.beans.factory.support.BeanNameGenerator;

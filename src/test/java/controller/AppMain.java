@@ -10,7 +10,6 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.MethodParameter;
 
 
-
 @FabricConfiguration
 @FabricScan({"controller" })
 public class AppMain{
