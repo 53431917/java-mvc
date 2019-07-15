@@ -1,7 +1,0 @@
-query querContext  
-description '查询指定字段' 
-SELECT gid, textContext 
-FROM org.hyperledger.fabric.chaincode.test.Context 
- WHERE  age > #beginAge#  AND age <= #lastAge# AND ( age IN #inAge# 
- AND b == #b# ) AND  cust >= #cust# 
- ORDER BY name DESC
