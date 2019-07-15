@@ -1,0 +1,33 @@
+<assembly>
+    <id>install</id>
+    <formats>
+        <format>zip</format>
+        <!--<format>tar.gz</format>-->
+        <!--<format>gzip</format>-->
+    </formats>
+    <!--指定是否包含打包层目录-->
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <!--jar包依赖-->
+    <!--<dependencySets>-->
+    <!--<dependencySet>-->
+    <!--<useProjectArtifact>true</useProjectArtifact>-->
+    <!--<outputDirectory>lib</outputDirectory>-->
+    <!--</dependencySet>-->
+    <!--</dependencySets>-->
+    <fileSets>
+        <fileSet>
+            <outputDirectory>src/</outputDirectory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src</directory>
+            <outputDirectory>src/src</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src/main/resources/META-INF</directory>
+            <outputDirectory>META-INF</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>
